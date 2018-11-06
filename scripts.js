@@ -1,0 +1,1 @@
+let newDie = $("body").append('<button>Generate Die</button>');
