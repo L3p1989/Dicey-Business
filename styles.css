@@ -1,3 +1,18 @@
 button {
     cursor: pointer;
 }
+
+.dice {
+    display: inline-block;
+    padding: .5%;
+}
+
+p {
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    width: 200%;
+    text-align: center;
+    border-radius: 25%;
+}
