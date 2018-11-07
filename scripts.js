@@ -1,11 +1,47 @@
-let table = $('body').prepend('<div></div>');
+class Die {
+    constructor() {
+        this.value;
+        this.div = $('<div class="dice"></div>');
+        this.roll();
+        $(this.div).text(this.value);
+        $('div:first').append(this.div);
+        $(this.div).click(() => {
+            this.roll();
+            $(this.div).text(this.value);
+        })
+    }
+    roll() {
+        this.value = Math.floor(Math.random() * 6) + 1;
+    }
+};
 
-let genDie = $("body").prepend('<button>Generate Die</button>');
+$('body').prepend('<button>Generate Die</button>');
 
-function diceRole(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
+let dice = [];
 
 $('button:first').click(function() {
-    $('div:first').append($('<div class="dice"><p>' + diceRole(1, 7) + '</p></div>'));
+    let newDie = new Die();
+    dice.push(newDie);
+    console.log('you is clicking me');
 });
+
+$('button:first').after('<button>Roll Dice</button>');
+
+$('button:last').after('<div></div>')
+
+$('button:last').click(function() {
+    dice.forEach(die => {
+        die.roll();
+        die.div.text(die.value);
+    });
+});
+
+$('div:first').after('<button>Sum</button>');
+
+$('button:last').click(() => {
+    dice.forEach(value => {
+        let getSum = 0;
+        getSum += parseInt(value);
+        console.log(getSum);
+    })
+})
