@@ -39,9 +39,9 @@ $('button:last').click(function() {
 $('div:first').after('<button>Sum</button>');
 
 $('button:last').click(() => {
-    dice.forEach(value => {
+    dice.forEach(die => {
         let getSum = 0;
-        getSum += parseInt(value);
+        getSum =+ reduce(die.value);
         console.log(getSum);
     })
 })
